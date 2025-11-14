@@ -1,0 +1,4 @@
+# Auto-Generated Files
+*.pyc
+# Database
+db.sqlite3

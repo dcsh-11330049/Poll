@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="zh-hant-tw">
-<head>
-    <meta charset="utf-8">
-    <title>投票主題列表</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+
+{% block title %}投票主題列表{% endblock %}
+
+{% block body %}
     <h1>投票主題列表</h1>
+    <a href="{% url 'poll_create'%}" hreflang='zh-hant-tw'><input type="button" value="新增投票" style="cursor:pointer"></a>
     <ul>
         {% for poll in poll_list %}
-        <li>{{poll.creation_date}} <a href="{% url 'poll_view' poll.id %}" hreflang="zh-hant-tw">{{poll.topic}}</a></li>
+        <li>
+            {{poll.creation_date}}
+            <a href="{% url 'poll_view' poll.id %}" hreflang='zh-hant-tw'>{{poll.topic}}</a>
+            <a href="{% url 'poll_edit' poll.id %}" hreflang='zh-hant-tw'><input type="button" value='修改'></a>
+            <a href="{% url 'poll_delete' poll.id %}" hreflang='zh-hant-tw'><input type="button" value='刪除'></a>
+        </li>
         {% endfor %}
     </ul>
     <pre>{{ msg }}</pre>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title %}刪除投票主題{% endblock %}
+
+{% block body %}
+    <h1>刪除投票主題</h1>
+    <p>確定刪除投票主題「{{ poll.topic }}」嗎？</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="確定刪除">
+    </form>
+{% endblock %}
